@@ -1,0 +1,12 @@
+" settings for vundle the vim plugin manager
+set shell=/bin/sh             " there are wired errors on Mac with fishshell
+set nocompatible              " be improved, required
+call plug#begin('~/.vim/plugged')
+
+" Customed plugin at here
+"=====================================
+Plug 'Chiel92/vim-autoformat'
+"=====================================
+
+" Initialize plugin system
+call plug#end()
