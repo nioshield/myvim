@@ -17,8 +17,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'w0rp/ale'
-Plug 'Valloric/YouCompleteMe', { 'do': 'git submodule update --init --recursive &&
-            \./install.py --gocode-completer --clang-completer --racer-completer --rust-completer' }
 Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go'
 "=====================================
