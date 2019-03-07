@@ -95,8 +95,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 nmap <silent> <leader>rr :TagbarToggle<CR>
 let g:tagbar_width=40
 let g:tagbar_compact=1
-let g:tagbar_autofocus=1
-let g:tagbar_autoclose=1
 "====================================="
 
 " vim-airline settings
