@@ -157,7 +157,7 @@ let g:ale_linters={
             \   'c': ['gcc', 'clang'],
             \   'cpp': ['gcc', 'clang', 'g++', 'clang++'],
             \   'csh': ['shell'],
-            \   'go': ['gofmt', 'go vet'],
+            \   'go': ['gopls','gofmt', 'go vet'],
             \   'python': ['flake8','autopep8'],
             \   'proto': ['protoc-gen-lint'],
             \   'rust': ['cargo', 'rls', 'rustc', 'rustfmt'],
@@ -207,13 +207,13 @@ let g:ycm_register_as_syntastic_checker=1
 set completeopt=menu,menuone
 noremap <c-x> <NOP>
 let g:ycm_semantic_triggers= {
-    \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{3}'],
-    \ 'cs,lua,javascript': ['re!\w{3}'],
-    \}
+            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{3}'],
+            \ 'cs,lua,javascript': ['re!\w{3}'],
+            \}
 let g:ycm_filetype_whitelist={
-    \ "c":1, "cpp":1, "h":1, "hpp":1, "cc":1,
-    \ "go":1, "rs":1, "sh":1, "py":1, "lua":1,
-    \}
+            \ "c":1, "cpp":1, "h":1, "hpp":1, "cc":1,
+            \ "go":1, "rs":1, "sh":1, "py":1, "lua":1,
+            \}
 " if you need to creat a .ycm_extra_conf.py for each project
 " copy the global should be okay
 au bufread,bufnewfile *.c,*.h let g:ycm_global_ycm_extra_conf='~/.vim/ycm-plugin/c/.ycm_extra_conf.py'
@@ -253,7 +253,7 @@ let g:go_fmt_command="goimports"
 let g:go_fmt_autosave=1
 let g:go_fmt_fail_silently=1
 let g:go_def_reuse_buffer=1
-let g:go_def_mode='guru'
+let g:go_def_mode = 'gopls'
 let g:go_template_autocreate=0
 noremap <silent> <leader>b :GoBuild<CR>
 noremap <silent> <leader>r :GoRun<CR>
