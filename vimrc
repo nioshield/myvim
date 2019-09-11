@@ -190,40 +190,40 @@ let g:ale_cpp_gcc_options='-Wall -O2 -std=c++11'
 
 " YCM settings
 "====================================="
-"set completeopt-=preview
-"nnoremap gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-"let g:ycm_show_diagnostics_ui=0
-"let g:ycm_key_invoke_completion='<c-x>'
-"let g:ycm_add_preview_to_completeopt=1
-"let g:ycm_autoclose_preview_window_after_insertion=1
-"let g:ycm_min_num_of_chars_for_completion=2
-"let g:ycm_min_num_identifier_candidate_chars=2
-"let g:ycm_seed_identifiers_with_syntax=1
-"let g:ycm_collect_identifiers_from_comments_and_strings=1
-"let g:ycm_collect_identifiers_from_tags_files=1
-"let g:ycm_complete_mn_comments=1
-"let g:ycm_complete_in_strings=1
-"let g:ycm_confirm_extra_conf=0
-"let g:ycm_enable_diagnostic_signs=1
-"let g:ycm_enable_diagnostic_highlighting=1
-"let g:ycm_register_as_syntastic_checker=1
-"set completeopt=menu,menuone
-"noremap <c-x> <NOP>
-"let g:ycm_semantic_triggers= {
-"            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{3}'],
-"            \ 'cs,lua,javascript': ['re!\w{3}'],
-"            \}
-"let g:ycm_filetype_whitelist={
-"            \ "c":1, "cpp":1, "h":1, "hpp":1, "cc":1,
-"            \ "go":1, "rs":1, "sh":1, "py":1, "lua":1,
-"            \}
-"" if you need to creat a .ycm_extra_conf.py for each project
-"" copy the global should be okay
-"au bufread,bufnewfile *.c,*.h let g:ycm_global_ycm_extra_conf='~/.vim/ycm-plugin/c/.ycm_extra_conf.py'
-"au bufread,bufnewfile *.hpp,*.cpp,*.cc,*.cxx let g:ycm_global_ycm_extra_conf='~/.vim/ycm-plugin/cpp/.ycm_extra_conf.py'
-"if filereadable(".ycm_extra_conf.py")
-"    let g:ycm_global_ycm_extra_conf='./.ycm_extra_conf.py'
-"endif
+set completeopt-=preview
+nnoremap gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_show_diagnostics_ui=0
+let g:ycm_key_invoke_completion='<c-x>'
+let g:ycm_add_preview_to_completeopt=1
+let g:ycm_autoclose_preview_window_after_insertion=1
+let g:ycm_min_num_of_chars_for_completion=2
+let g:ycm_min_num_identifier_candidate_chars=2
+let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_collect_identifiers_from_comments_and_strings=1
+let g:ycm_collect_identifiers_from_tags_files=1
+let g:ycm_complete_mn_comments=1
+let g:ycm_complete_in_strings=1
+let g:ycm_confirm_extra_conf=0
+let g:ycm_enable_diagnostic_signs=1
+let g:ycm_enable_diagnostic_highlighting=1
+let g:ycm_register_as_syntastic_checker=1
+set completeopt=menu,menuone
+noremap <c-x> <NOP>
+let g:ycm_semantic_triggers= {
+            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{3}'],
+            \ 'cs,lua,javascript': ['re!\w{3}'],
+            \}
+let g:ycm_filetype_whitelist={
+            \ "c":1, "cpp":1, "h":1, "hpp":1, "cc":1,
+            \ "go":1, "rs":1, "sh":1, "py":1, "lua":1,
+            \}
+" if you need to creat a .ycm_extra_conf.py for each project
+" copy the global should be okay
+au bufread,bufnewfile *.c,*.h let g:ycm_global_ycm_extra_conf='~/.vim/ycm-plugin/c/.ycm_extra_conf.py'
+au bufread,bufnewfile *.hpp,*.cpp,*.cc,*.cxx let g:ycm_global_ycm_extra_conf='~/.vim/ycm-plugin/cpp/.ycm_extra_conf.py'
+if filereadable(".ycm_extra_conf.py")
+    let g:ycm_global_ycm_extra_conf='./.ycm_extra_conf.py'
+endif
 "====================================="
 
 
