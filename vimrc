@@ -54,12 +54,13 @@ hi IndentGuidesEven ctermbg=233
 "====================================="
 
 " auto format
-let g:formatterpath=['/usr/local/bin']
-let g:formatters_cpp=['c']
-let g:formatters_c=['c']
-let g:formatdef_c='"astyle --style=google --indent=force-tab --pad-oper --pad-comma --pad-header"'
-noremap <silent> <F8> :Autoformat<CR>
 au BufWrite * :Autoformat
+let g:formatterpath = ['/usr/local/bin']
+let g:formatdef_astyle_cpp = '"astyle --style=google --indent=spaces=4 --attach-namespaces --attach-classes --break-blocks --pad-oper --pad-comma --pad-header --convert-tabs --add-brackets"'
+let g:formatdef_clangformat = '"clang-format -style=Google"'
+let g:formatters_cc = ['clang_cpp']
+"autoformat 调试模式
+let g:autoformat_verbosemode = 0
 "====================================="
 
 " vim-gutentags settings
@@ -129,7 +130,10 @@ nmap <silent> <leader>0 <Plug>AirlineSelectTab0
 "====================================="
 
 " LeaderF settings
-noremap <silent> <leader>f :LeaderfMruCwd<CR>
+"noremap <leader>f :LeaderfMruCwd<CR>
+noremap <leader>sm :LeaderfMru<cr>
+noremap <leader>sf :LeaderfFile<cr>
+noremap <leader>st :LeaderfTag<cr>
 let g:Lf_ShortcutF = '<C-F>'
 let g:Lf_StlSeparator={ 'left': '', 'right': '', 'font': '' }
 let g:Lf_RootMarkers=['.project', '.root', '.svn', '.git']
@@ -150,18 +154,14 @@ let g:cpp_member_variable_highlight=1
 "====================================="
 
 " ale settings
-set omnifunc=ale#completion#OmniFunc
-nmap <silent> <leader>d :ALEGoToDefinition<CR>
-nmap <silent> <leader>r :ALEFindReferences<CR>
-nmap <silent> <leader>a :ALESymbolSearch<CR>
-nmap <silent> <leader>h :ALEHover<CR>
 nmap <silent> sn <Plug>(ale_next_wrap)
+nmap <silent> <leader>d :ALEDetail<CR>
 nmap <silent> sp <Plug>(ale_previous_wrap)
 let g:ale_linters={
-            \   'c': ['clangd','gcc'],
-            \   'cpp': ['clangd','gcc', 'g++', 'clang++'],
+            \   'c': ['clang','gcc'],
+            \   'cpp': ['clang','gcc','g++', 'clang++'],
             \   'csh': ['shell'],
-            \   'go': ['gopls','gofmt', 'go vet'],
+            \   'go': ['gopls','gofmt'],
             \   'python': ['flake8','autopep8'],
             \   'proto': ['protoc-gen-lint'],
             \   'rust': ['cargo', 'rls', 'rustc', 'rustfmt'],
@@ -183,7 +183,7 @@ let g:ale_echo_delay=50
 let g:ale_echo_msg_format='[%severity%] [%linter%] %code: %%s'
 let g:ale_go_gometalinter_options='--fast -t --errors --enable-gc'
 let g:ale_go_gofmt_options='-s'
-let g:ale_c_clangd_executable='/usr/local/opt/llvm/bin/clangd'
+"let g:ale_c_clangd_executable='/usr/local/opt/llvm/bin/clangd'
 let g:ale_c_gcc_options='-Wall -O2'
 let g:ale_cpp_gcc_options='-Wall -O2 -std=c++11'
 "====================================="
@@ -256,7 +256,6 @@ let g:go_fmt_command="goimports"
 let g:go_fmt_autosave=1
 let g:go_fmt_fail_silently=1
 let g:go_def_reuse_buffer=1
-let g:go_def_mode = 'gopls'
 let g:go_template_autocreate=0
 noremap <silent> <leader>b :GoBuild<CR>
 noremap <silent> <leader>r :GoRun<CR>
