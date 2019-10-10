@@ -22,6 +22,9 @@ set tags=./.tags;,.tags
 syntax on
 filetype on
 filetype indent on
+"filetype plugin on
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 
 " set mapleader
 let mapleader=","
@@ -154,38 +157,38 @@ let g:cpp_member_variable_highlight=1
 "====================================="
 
 " ale settings
-nmap <silent> sn <Plug>(ale_next_wrap)
-nmap <silent> <leader>d :ALEDetail<CR>
-nmap <silent> sp <Plug>(ale_previous_wrap)
-let g:ale_linters={
-            \   'c': ['clang','gcc'],
-            \   'cpp': ['clang','gcc','g++', 'clang++'],
-            \   'csh': ['shell'],
-            \   'go': ['gopls','gofmt'],
-            \   'python': ['flake8','autopep8'],
-            \   'proto': ['protoc-gen-lint'],
-            \   'rust': ['cargo', 'rls', 'rustc', 'rustfmt'],
-            \   'zsh': ['shell'],
-            \}
-" strict go linter
-"\'go': ['gofmt', 'go vet', 'gometalinter', 'golint']}
-let g:ale_linters_explicit=1
-let g:ale_lint_delay=100
-let g:ale_lint_on_text_changed='normal'
-let g:ale_lint_on_insert_leave=1
-let g:ale_lint_on_enter=1
-let g:ale_lint_on_save=1
-let g:ale_sign_error='✗✗'
-let g:ale_sign_warning='??'
-let g:ale_completion_enabled=1
-let g:ale_completion_delay=100
-let g:ale_echo_delay=50
-let g:ale_echo_msg_format='[%severity%] [%linter%] %code: %%s'
-let g:ale_go_gometalinter_options='--fast -t --errors --enable-gc'
-let g:ale_go_gofmt_options='-s'
+"nmap <silent> sn <Plug>(ale_next_wrap)
+"nmap <silent> <leader>d :ALEDetail<CR>
+"nmap <silent> sp <Plug>(ale_previous_wrap)
+"let g:ale_linters={
+"            \   'c': ['clang','gcc'],
+"            \   'cpp': ['clang','gcc','g++', 'clang++'],
+"            \   'csh': ['shell'],
+"            \   'go': ['gopls','gofmt'],
+"            \   'python': ['flake8','autopep8'],
+"            \   'proto': ['protoc-gen-lint'],
+"            \   'rust': ['cargo', 'rls', 'rustc', 'rustfmt'],
+"            \   'zsh': ['shell'],
+"            \}
+"" strict go linter
+""\'go': ['gofmt', 'go vet', 'gometalinter', 'golint']}
+"let g:ale_linters_explicit=1
+"let g:ale_lint_delay=100
+"let g:ale_lint_on_text_changed='normal'
+"let g:ale_lint_on_insert_leave=1
+"let g:ale_lint_on_enter=1
+"let g:ale_lint_on_save=1
+"let g:ale_sign_error='✗✗'
+"let g:ale_sign_warning='??'
+""let g:ale_completion_enabled=1
+""let g:ale_completion_delay=100
+"let g:ale_echo_delay=50
+"let g:ale_echo_msg_format='[%severity%] [%linter%] %code: %%s'
+"let g:ale_go_gometalinter_options='--fast -t --errors --enable-gc'
+"let g:ale_go_gofmt_options='-s'
 "let g:ale_c_clangd_executable='/usr/local/opt/llvm/bin/clangd'
-let g:ale_c_gcc_options='-Wall -O2'
-let g:ale_cpp_gcc_options='-Wall -O2 -std=c++11'
+"let g:ale_c_gcc_options='-Wall -O2'
+"let g:ale_cpp_gcc_options='-Wall -O2 -std=c++11'
 "====================================="
 
 " YCM settings
@@ -256,6 +259,7 @@ let g:go_fmt_command="goimports"
 let g:go_fmt_autosave=1
 let g:go_fmt_fail_silently=1
 let g:go_def_reuse_buffer=1
+let g:go_def_mode='guru'
 let g:go_template_autocreate=0
 noremap <silent> <leader>b :GoBuild<CR>
 noremap <silent> <leader>r :GoRun<CR>
@@ -271,7 +275,7 @@ noremap <silent> <leader>doc :GoDocBrowser<CR>
 noremap <silent> <leader>test :GoTest<CR>
 noremap <silent> <leader>peer :GoChannelPeers<CR>
 noremap <silent> <leader>free :GoFreevars<CR>
-au BufRead,BufNewFile *.go set filetype=go
+au bufnewfile,bufread *.go setlocal noexpandtab tabstop=4 shiftwidth=4 filetype=go
 "====================================="
 
 
