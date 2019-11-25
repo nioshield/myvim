@@ -216,10 +216,10 @@ let g:ycm_semantic_triggers= {
             \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{3}'],
             \ 'cs,lua,javascript': ['re!\w{3}'],
             \}
-let g:ycm_filetype_whitelist={
-            \ "c":1, "cpp":1, "h":1, "hpp":1, "cc":1,
-            \ "go":1, "rs":1, "sh":1, "py":1, "lua":1,
-            \}
+"let g:ycm_filetype_whitelist={
+"            \ "c":1, "cpp":1, "h":1, "hpp":1, "cc":1,
+"            \ "go":1, "rs":1, "sh":1, "py":1, "lua":1,
+"            \}
 " if you need to creat a .ycm_extra_conf.py for each project
 " copy the global should be okay
 au bufread,bufnewfile *.c,*.h let g:ycm_global_ycm_extra_conf='~/.vim/ycm-plugin/c/.ycm_extra_conf.py'
