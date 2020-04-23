@@ -57,27 +57,27 @@ hi IndentGuidesEven ctermbg=233
 "====================================="
 
 " auto format
-au BufWrite * :Autoformat
-let g:formatterpath = ['/usr/local/bin']
-let g:formatdef_astyle_cpp = '"astyle --style=google --indent=spaces=4 --attach-namespaces --attach-classes --break-blocks --pad-oper --pad-comma --pad-header --convert-tabs --add-brackets"'
-let g:formatdef_clangformat = '"clang-format -style=Google"'
-let g:formatters_cc = ['clang_cpp']
-"autoformat 调试模式
-let g:autoformat_verbosemode = 0
+"au BufWrite * :Autoformat
+"let g:formatterpath = ['/usr/local/bin']
+"let g:formatdef_astyle_cpp = '"astyle --style=google --indent=space=4 --attach-namespaces --attach-classes --break-blocks --pad-oper --pad-comma --pad-header --convert-tabs --add-brackets"'
+""let g:formatdef_clangformat = '"clang-format -style=google -"'
+"let g:formatters_cc = ['clang_cpp']
+""autoformat 调试模式
+"let g:autoformat_verbosemode = 1
 "====================================="
 
 " vim-gutentags settings
-let g:gutentags_project_root=['Makefile', '.root', '.svn', '.git', '.hg', '.project']
-let g:gutentags_ctags_tagfile='.tags'
-let s:vim_tags=expand('~/.cache/tags')
-let g:gutentags_cache_dir=s:vim_tags
-let g:gutentags_ctags_extra_args=['--fields=+niazS', '--extra=+q']
-let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
-let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
-let g:gutentags_auto_add_gtags_cscope = 0
-if !isdirectory(s:vim_tags)
-    silent! call mkdir(s:vim_tags, 'p')
-endif
+"let g:gutentags_project_root=['Makefile', '.root', '.svn', '.git', '.hg', '.project']
+"let g:gutentags_ctags_tagfile='.tags'
+"let s:vim_tags=expand('~/.cache/tags')
+"let g:gutentags_cache_dir=s:vim_tags
+"let g:gutentags_ctags_extra_args=['--fields=+niazS', '--extra=+q']
+"let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+"let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+"let g:gutentags_auto_add_gtags_cscope = 0
+"if !isdirectory(s:vim_tags)
+"    silent! call mkdir(s:vim_tags, 'p')
+"endif
 "====================================="
 
 " gitgutter
@@ -134,9 +134,8 @@ nmap <silent> <leader>0 <Plug>AirlineSelectTab0
 
 " LeaderF settings
 "noremap <leader>f :LeaderfMruCwd<CR>
-noremap <leader>sm :LeaderfMru<cr>
 noremap <leader>sf :LeaderfFile<cr>
-noremap <leader>st :LeaderfTag<cr>
+noremap <leader>sb :LeaderfBuffer<cr>
 let g:Lf_ShortcutF = '<C-F>'
 let g:Lf_StlSeparator={ 'left': '', 'right': '', 'font': '' }
 let g:Lf_RootMarkers=['.project', '.root', '.svn', '.git']
@@ -149,85 +148,75 @@ let g:Lf_StlColorscheme='powerline'
 "====================================="
 
 " vim-cpp-enhanced-highlight
-let g:cpp_concepts_highlight=1
-let g:cpp_class_decl_highlight=1
-let g:cpp_no_function_highlight=1
-let g:cpp_class_scope_highlight=1
-let g:cpp_member_variable_highlight=1
-"====================================="
-
-" ale settings
-"nmap <silent> sn <Plug>(ale_next_wrap)
-"nmap <silent> <leader>d :ALEDetail<CR>
-"nmap <silent> sp <Plug>(ale_previous_wrap)
-"let g:ale_linters={
-"            \   'c': ['clang','gcc'],
-"            \   'cpp': ['clang','gcc','g++', 'clang++'],
-"            \   'csh': ['shell'],
-"            \   'go': ['gopls','gofmt'],
-"            \   'python': ['flake8','autopep8'],
-"            \   'proto': ['protoc-gen-lint'],
-"            \   'rust': ['cargo', 'rls', 'rustc', 'rustfmt'],
-"            \   'zsh': ['shell'],
-"            \}
-"" strict go linter
-""\'go': ['gofmt', 'go vet', 'gometalinter', 'golint']}
-"let g:ale_linters_explicit=1
-"let g:ale_lint_delay=100
-"let g:ale_lint_on_text_changed='normal'
-"let g:ale_lint_on_insert_leave=1
-"let g:ale_lint_on_enter=1
-"let g:ale_lint_on_save=1
-"let g:ale_sign_error='✗✗'
-"let g:ale_sign_warning='??'
-""let g:ale_completion_enabled=1
-""let g:ale_completion_delay=100
-"let g:ale_echo_delay=50
-"let g:ale_echo_msg_format='[%severity%] [%linter%] %code: %%s'
-"let g:ale_go_gometalinter_options='--fast -t --errors --enable-gc'
-"let g:ale_go_gofmt_options='-s'
-"let g:ale_c_clangd_executable='/usr/local/opt/llvm/bin/clangd'
-"let g:ale_c_gcc_options='-Wall -O2'
-"let g:ale_cpp_gcc_options='-Wall -O2 -std=c++11'
+"let g:cpp_concepts_highlight=1
+"let g:cpp_class_decl_highlight=1
+"let g:cpp_no_function_highlight=1
+"let g:cpp_class_scope_highlight=1
+"let g:cpp_member_variable_highlight=1
 "====================================="
 
 " YCM settings
 "====================================="
-set completeopt-=preview
-nnoremap gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-let g:ycm_show_diagnostics_ui=0
-let g:ycm_key_invoke_completion='<c-x>'
-let g:ycm_add_preview_to_completeopt=1
-let g:ycm_autoclose_preview_window_after_insertion=1
-let g:ycm_min_num_of_chars_for_completion=2
-let g:ycm_min_num_identifier_candidate_chars=2
-let g:ycm_seed_identifiers_with_syntax=1
-let g:ycm_collect_identifiers_from_comments_and_strings=1
-let g:ycm_collect_identifiers_from_tags_files=1
-let g:ycm_complete_mn_comments=1
-let g:ycm_complete_in_strings=1
-let g:ycm_confirm_extra_conf=0
-let g:ycm_enable_diagnostic_signs=1
-let g:ycm_enable_diagnostic_highlighting=1
-let g:ycm_register_as_syntastic_checker=1
-set completeopt=menu,menuone
-noremap <c-x> <NOP>
-let g:ycm_semantic_triggers= {
-            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{3}'],
-            \ 'cs,lua,javascript': ['re!\w{3}'],
-            \}
-"let g:ycm_filetype_whitelist={
-"            \ "c":1, "cpp":1, "h":1, "hpp":1, "cc":1,
-"            \ "go":1, "rs":1, "sh":1, "py":1, "lua":1,
+"set completeopt-=preview
+"nnoremap gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"let g:ycm_show_diagnostics_ui=0
+"let g:ycm_key_invoke_completion='<c-x>'
+"let g:ycm_add_preview_to_completeopt=1
+"let g:ycm_autoclose_preview_window_after_insertion=1
+"let g:ycm_min_num_of_chars_for_completion=2
+"let g:ycm_min_num_identifier_candidate_chars=2
+"let g:ycm_seed_identifiers_with_syntax=1
+"let g:ycm_collect_identifiers_from_comments_and_strings=1
+"let g:ycm_collect_identifiers_from_tags_files=1
+"let g:ycm_complete_mn_comments=1
+"let g:ycm_complete_in_strings=1
+"let g:ycm_confirm_extra_conf=0
+"let g:ycm_enable_diagnostic_signs=1
+"let g:ycm_enable_diagnostic_highlighting=1
+"let g:ycm_register_as_syntastic_checker=1
+""let g:ycm_rust_src_path="/Users/nio/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src/"
+"set completeopt=menu,menuone
+"noremap <c-x> <NOP>
+"let g:ycm_semantic_triggers= {
+"            \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{3}'],
+"            \ 'cs,lua,javascript': ['re!\w{3}'],
 "            \}
-" if you need to creat a .ycm_extra_conf.py for each project
-" copy the global should be okay
-au bufread,bufnewfile *.c,*.h let g:ycm_global_ycm_extra_conf='~/.vim/ycm-plugin/c/.ycm_extra_conf.py'
-au bufread,bufnewfile *.hpp,*.cpp,*.cc,*.cxx let g:ycm_global_ycm_extra_conf='~/.vim/ycm-plugin/cpp/.ycm_extra_conf.py'
-if filereadable(".ycm_extra_conf.py")
-    let g:ycm_global_ycm_extra_conf='./.ycm_extra_conf.py'
-endif
+""let g:ycm_filetype_whitelist={
+""            \ "c":1, "cpp":1, "h":1, "hpp":1, "cc":1,
+""            \ "go":1, "rs":1, "sh":1, "py":1, "lua":1,
+""            \}
+"" if you need to creat a .ycm_extra_conf.py for each project
+"" copy the global should be okay
+"au bufread,bufnewfile *.c,*.h let g:ycm_global_ycm_extra_conf='~/.vim/ycm-plugin/c/.ycm_extra_conf.py'
+"au bufread,bufnewfile *.hpp,*.cpp,*.cc,*.cxx let g:ycm_global_ycm_extra_conf='~/.vim/ycm-plugin/cpp/.ycm_extra_conf.py'
+"if filereadable(".ycm_extra_conf.py")
+"    let g:ycm_global_ycm_extra_conf='./.ycm_extra_conf.py'
+"endif
 "====================================="
+
+"coc.vim
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
+endfunction
+
+"
+
 
 
 " rust.vim

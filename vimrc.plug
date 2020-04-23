@@ -19,8 +19,9 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'Shougo/vimproc.vim',{ 'tag': '*', 'do': 'make' }
 "Plug 'dense-analysis/ale'
-Plug 'Valloric/YouCompleteMe', { 'do': 'git submodule update --init --recursive &&
-            \./install.py --gocode-completer --clang-completer --rust-completer' }
+"Plug 'Valloric/YouCompleteMe', { 'do': 'git submodule update --init --recursive &&
+"            \./install.py --gocode-completer --clang-completer --rust-completer' }
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 "=====================================
