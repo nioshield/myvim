@@ -133,7 +133,6 @@ nmap <silent> <leader>0 <Plug>AirlineSelectTab0
 "====================================="
 
 " LeaderF settings
-"noremap <leader>f :LeaderfMruCwd<CR>
 noremap <leader>sf :LeaderfFile<cr>
 noremap <leader>sb :LeaderfBuffer<cr>
 let g:Lf_ShortcutF = '<C-F>'
@@ -258,10 +257,10 @@ let g:go_highlight_space_tab_error=1
 let g:go_highlight_types=1
 let g:go_highlight_trailing_whitespace_error=1
 let g:go_fmt_command="goimports"
-let g:go_fmt_autosave=1
+let g:go_fmt_autosave=0
 let g:go_fmt_fail_silently=1
 let g:go_def_reuse_buffer=1
-let g:go_def_mode='guru'
+let g:go_def_mode='gopls'
 let g:go_template_autocreate=0
 noremap <silent> <leader>b :GoBuild<CR>
 noremap <silent> <leader>r :GoRun<CR>

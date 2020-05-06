@@ -23,7 +23,7 @@ Plug 'Shougo/vimproc.vim',{ 'tag': '*', 'do': 'make' }
 "            \./install.py --gocode-completer --clang-completer --rust-completer' }
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'rust-lang/rust.vim'
-"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 "=====================================
 
 " Initialize plugin system
