@@ -67,17 +67,17 @@ hi IndentGuidesEven ctermbg=233
 "====================================="
 
 " vim-gutentags settings
-"let g:gutentags_project_root=['Makefile', '.root', '.svn', '.git', '.hg', '.project']
-"let g:gutentags_ctags_tagfile='.tags'
-"let s:vim_tags=expand('~/.cache/tags')
-"let g:gutentags_cache_dir=s:vim_tags
-"let g:gutentags_ctags_extra_args=['--fields=+niazS', '--extra=+q']
-"let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
-"let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
-"let g:gutentags_auto_add_gtags_cscope = 0
-"if !isdirectory(s:vim_tags)
-"    silent! call mkdir(s:vim_tags, 'p')
-"endif
+let g:gutentags_project_root=['Makefile', '.root', '.svn', '.git', '.hg', '.project']
+let g:gutentags_ctags_tagfile='.tags'
+let s:vim_tags=expand('~/.cache/tags')
+let g:gutentags_cache_dir=s:vim_tags
+let g:gutentags_ctags_extra_args=['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+let g:gutentags_auto_add_gtags_cscope = 0
+if !isdirectory(s:vim_tags)
+    silent! call mkdir(s:vim_tags, 'p')
+endif
 "====================================="
 
 " gitgutter

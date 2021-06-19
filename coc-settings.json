@@ -29,7 +29,7 @@
                         "-I",
                         "/usr/local/include/quic",
                         "-I",
-                        "/Users/nio/work/quic/quic-nginx-module/build/nginx"
+                        "/Users/nio/work/quic/quic-http-module/src"
 
                     ]
                 }
