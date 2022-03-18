@@ -33,8 +33,10 @@
         "rust": {
             "command": "rls",
             "filetypes": ["rust"],
-            "rootPatterns": ["Cargo.toml"]
+            "rootPatterns": ["Cargo.toml"],
         }
-    }
+    },
+    "rust-analyzer.updates.prompt": false,
+    "rust-analyzer.server.path": "~/.config/coc/extensions/coc-rust-analyzer-data/rust-analyzer"
 
 }
